@@ -6,7 +6,12 @@ passing it a name prop of your choosing. */
 
 export class Welcome extends React.Component {
   render() {
-    return <p>Welcome, {this.props.name ?? 'Caio'}</p>;
+    return (
+      <div>
+        <p>Welcome, {this.props.name ?? 'Caio'}</p>
+        <p>Your age is {this.props.age ?? '000'}</p>
+      </div>
+    );
   }
 }
 /* Anche questa è una possibilita:  */
