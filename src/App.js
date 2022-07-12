@@ -1,5 +1,6 @@
 import React from 'react';
 import { HelloWorld } from './HelloWorld';
+import {Message} from './Message';
 
 /* Write a class component called `App` that renders the `Hello` component within a `div` tag. */
 export class App extends React.Component {
@@ -7,7 +8,7 @@ export class App extends React.Component {
     return ( 
       <div>
         <HelloWorld />
-        <p>Classe APP</p> {/* solo per vedere se funziona correttamente */}
+        <Message />
       </div>
     );
   }
