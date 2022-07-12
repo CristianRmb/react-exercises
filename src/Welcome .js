@@ -5,8 +5,11 @@ import React from 'react';
 passing it a name prop of your choosing. */
 
 export class Welcome extends React.Component {
-  render(){
-    return <p>Welcome, {this.props.name}</p>
+  render() {
+    return <p>Welcome, {this.props.name ?? 'Caio'}</p>;
   }
-
 }
+/* Anche questa è una possibilita:  */
+// Welcome.defaultProps = {
+//   name: 'Tizio',
+// };
