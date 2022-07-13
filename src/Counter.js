@@ -1,7 +1,6 @@
 import React from 'react';
+import { CounterDisplay } from './CounterDisplay';
 
-/* Modify the Counter component so that the initial value of the counter,
-the increment interval and the increment amount are passed as props to the component. */
 
 export class Counter extends React.Component {
   constructor(props) {
@@ -13,13 +12,16 @@ export class Counter extends React.Component {
 
     setInterval(() => {
       this.setState(() => {
-        return { count: this.state.count + this.props.incrementAmount ?? 0 };
+        return { count: this.state.count + (this.props.incrementAmount ?? 1) };
       });
     }, this.props.incrementInterval ?? 1000);
   }
 
   render() {
-    return <h1>Count: {this.state.count}</h1>;
+    return (
+      // <h1>Count: {this.state.count}</h1>,
+      <CounterDisplay  initialValue={100} incrementAmount={2} incrementInterval={2000}/>
+    );
   }
 }
 /* Props: initialValue, incrementAmount, incrementInterval */
