@@ -1,8 +1,11 @@
 import React from 'react';
 import { CounterDisplay } from './CounterDisplay';
 
+/* Modify the Counter component so that the interval is initialized within the componentDidMount 
+life cycle method instead of the constructor. Is the constructor still required? */
 
 export class Counter extends React.Component {
+
   constructor(props) {
     super(props);
 
@@ -19,8 +22,7 @@ export class Counter extends React.Component {
 
   render() {
     return (
-      // <h1>Count: {this.state.count}</h1>,
-      <CounterDisplay  initialValue={100} incrementAmount={2} incrementInterval={2000}/>
+      <CounterDisplay count= {this.state.count}/>
     );
   }
 }
