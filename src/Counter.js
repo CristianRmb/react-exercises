@@ -6,14 +6,24 @@ life cycle method instead of the constructor. Is the constructor still required?
 
 export class Counter extends React.Component {
 
-  constructor(props) {
+  state = {
+    count: this.props.initialValue ?? 0,
+  };
+
+/*   constructor(props) {
     super(props);
 
-    this.state = {
-      count: this.props.initialValue ?? 0,
-    };
 
     setInterval(() => {
+      this.setState(() => {
+        return { count: this.state.count + (this.props.incrementAmount ?? 1) };
+      });
+    }, this.props.incrementInterval ?? 1000);
+  } */
+
+
+  componentDidMount(){
+    setInterval(()=> {
       this.setState(() => {
         return { count: this.state.count + (this.props.incrementAmount ?? 1) };
       });
