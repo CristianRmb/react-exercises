@@ -2,13 +2,18 @@ import React from 'react';
 import { Age } from './Age';
 
 export class Welcome extends React.Component {
+  controllo(props) {
+    const age = props.age;
+    if (age > 18) {
+      return <Age age={this.props.age} />;
+    }
+  }
   render() {
+    const renderAge = this.props.age;
     return (
       <div>
         <p>Welcome, {this.props.name ?? 'Caio'}</p>
-        {/* <Age age={this.props.age>18 ? this.props.age: "< 18"} /> */}
-        <Age age={this.props.age > 18 && this.props.age} />
-        {/* stampa solo se >18 */}
+        {(renderAge > 18) ? (<Age age={this.props.age}/>):(null)}
       </div>
     );
   }
