@@ -1,8 +1,9 @@
 import React from 'react';
 
-/* Create a Login component containing three inputs: 
-a username input, a password input and a remember checkbox. 
-All three inputs should be controlled components. */
+/* Add a "login" button to the Login component. 
+This button should be disabled as long as the username and password inputs are empty. 
+When clicked, the event handler attached to the button should call an onLogin function 
+passed as a prop to the Login component, passing it the state. */
 
 export class Login extends React.Component {
   state = {
@@ -27,6 +28,13 @@ export class Login extends React.Component {
     console.log(this.state);
   }
 
+  onLogin = () => {
+    Login.props = {
+      username: this.state.username,
+      password: this.state.password,
+    };
+  };
+
   render() {
     return (
       <div>
@@ -49,6 +57,12 @@ export class Login extends React.Component {
           checked={this.state.remember}
           onChange={this.handleInputs}
         />
+        <button
+          disabled={!(this.state.username && this.state.password)}
+          onClick={this.onLogin}
+        >
+          Login
+        </button>
       </div>
     );
   }
