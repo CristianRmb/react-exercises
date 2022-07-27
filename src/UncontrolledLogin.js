@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { createRef } from 'react';
 
-/* Implement an UncontrolledLogin component that implements all the operations 
-of the Login component, but does so using uncontrolled components. */
+/* Modify the UncontrolledLogin component so that the username input is
+ automatically focused when the component renders the first time. */
 
 export class UncontrolledLogin extends React.Component {
+  _formRef = createRef();
+
   handleLogin = (event) => {
     event.preventDefault();
 
@@ -18,10 +20,14 @@ export class UncontrolledLogin extends React.Component {
     });
   };
 
+  componentDidMount() {
+    this._formRef.current.elements.username.focus();
+  }
+
   render() {
     return (
       <div>
-        <form onSubmit={this.handleLogin}>
+        <form onSubmit={this.handleLogin} ref={this._formRef}>
           <input placeholder='Username' name='username' />
           <input placeholder='Password' name='password' type='password' />
           <input name='remember' type='checkbox' />
