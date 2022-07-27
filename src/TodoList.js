@@ -1,6 +1,7 @@
 import React from 'react';
 
-/* Modify the TodoList component so that the input clears every time a Todo is added to the items array. */
+/* Modify the TodoList by adding a "remove" button to each li tag.
+When clicked, the event handler should remove corresponding item from the items array. */
 
 class TodoList extends React.Component {
   state = {
@@ -29,9 +30,22 @@ class TodoList extends React.Component {
     });
   };
 
+  removeHero = (event) => {
+    const newArray = this.state.items;
+    newArray.splice(event.target.value, 1);
+    this.setState({
+      items: newArray,
+    });
+  };
+
   render() {
     const heroes = this.state.items.map((hero, index) => (
-      <li key={hero + index}>{hero}</li>
+      <div key={Math.random()}>
+        <li key={hero + index}>{hero}</li>
+        <button value={index} onClick={this.removeHero}>
+          Remove {hero}
+        </button>
+      </div>
     ));
     return (
       <div>
