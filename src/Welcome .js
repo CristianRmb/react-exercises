@@ -6,7 +6,7 @@ the age prop is greater than 18 and less than 65 and the name prop is equal to "
 export class Welcome extends React.Component {
   render() {
     return (
-      <div>
+      <div className='welcome'>
         <p>Welcome, {this.props.name ?? 'Caio'}</p>
         {/* {this.props.age > 18 &&
           this.props.age < 65 &&

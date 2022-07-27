@@ -1,5 +1,6 @@
 import ReactDOM from 'react-dom/client';
 import { App } from './App';
-/* Create a new `index.js` file within the `src` folder and render the `App` component using the `ReactDOM.render` method. */
+import './index.css';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);
