@@ -1,7 +1,7 @@
 import React from 'react';
 
-/* Add a "reset" button to the Login component that clears 
-the content of all three inputs when clicked. */
+/* Modify the Login component from Forms 03 so that the "login" button background color is "red" 
+when the inputted password's length is shorter than 8 characters, green otherwise. */
 
 export class Login extends React.Component {
   state = {
@@ -66,6 +66,9 @@ export class Login extends React.Component {
         <button
           disabled={!(this.state.username && this.state.password)}
           onClick={this.onLogin}
+          style={{
+            background: this.state.password.length < 8 ? 'red' : 'green',
+          }}
         >
           Login
         </button>
