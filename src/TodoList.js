@@ -1,9 +1,6 @@
 import React from 'react';
 
-/* Create a TodoList component that renders a ul tag with a li tag for each item contained 
-in the items state variable. The items state variable should be an array of strings. 
-The TodoList component should also contain an input tag and a button. When the button is clicked, 
-the event handler should add the value of the input tag to the items array. */
+/* Modify the TodoList component so that the input clears every time a Todo is added to the items array. */
 
 class TodoList extends React.Component {
   state = {
@@ -22,6 +19,7 @@ class TodoList extends React.Component {
     heroList.push(this.state.newHero);
     this.setState({
       items: heroList,
+      newHero: '',
     });
   };
 
@@ -32,7 +30,12 @@ class TodoList extends React.Component {
     return (
       <div>
         <ul>{heroes}</ul>
-        <input name='hero' type={'text'} onChange={this.handleInputChange} />
+        <input
+          value={this.state.newHero}
+          name='hero'
+          type={'text'}
+          onChange={this.handleInputChange}
+        />
         <button onClick={this.addHero}>Add Hero</button>
       </div>
     );
