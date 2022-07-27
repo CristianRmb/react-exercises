@@ -23,6 +23,12 @@ class TodoList extends React.Component {
     });
   };
 
+  resetList = () => {
+    this.setState({
+      items: [],
+    });
+  };
+
   render() {
     const heroes = this.state.items.map((hero, index) => (
       <li key={hero + index}>{hero}</li>
@@ -37,6 +43,7 @@ class TodoList extends React.Component {
           onChange={this.handleInputChange}
         />
         <button onClick={this.addHero}>Add Hero</button>
+        <button onClick={this.resetList}>Reset List</button>
       </div>
     );
   }
