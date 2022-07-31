@@ -13,8 +13,7 @@ import { Container } from './Container';
 export class App extends React.Component {
   render() {
     return (
-      <Container>
-        <div>
+      <Container title={"Title"}>
           <Message />
           {/* <Welcome name='John' age='19' /> */}
           {/* <Counter />
@@ -24,7 +23,6 @@ export class App extends React.Component {
         <Login />
         <UncontrolledLogin />
       <TodoList /> */}
-        </div>
       </Container>
     );
   }
