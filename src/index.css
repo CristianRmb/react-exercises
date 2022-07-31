@@ -2,6 +2,28 @@
  Add a .welcome class to the Welcome component that changes its background color and adds a border. */
 
 @tailwind base;
+
+@layer base {
+  h1 {
+    @apply text-2xl;
+  }
+  h2 {
+    @apply text-xl;
+  }
+  h3 {
+    @apply text-lg;
+  }
+  a {
+    @apply text-blue-600 underline;
+  }
+  input {
+    @apply border;
+  }
+  button {
+    @apply border bg-slate-300 m-1 p-1;
+  }
+}
+
 @tailwind components;
 @tailwind utilities;
 

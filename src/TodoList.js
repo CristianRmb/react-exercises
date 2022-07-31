@@ -1,7 +1,9 @@
 import React from 'react';
 
-/* Modify the TodoList by adding a "remove" button to each li tag.
-When clicked, the event handler should remove corresponding item from the items array. */
+/* Modify the TodoList component so that, instead of rendering the items array within the ul tag,
+it calls the function passed to its render prop, passing it the items array as a parameter, 
+as well as the function required to delete the item. 
+Pass a render prop to the TodoList component to correctly render and interact with the items array. */
 
 class TodoList extends React.Component {
   state = {
@@ -39,17 +41,21 @@ class TodoList extends React.Component {
   };
 
   render() {
-    const heroes = this.state.items.map((hero, index) => (
-      <div key={Math.random()}>
-        <li key={hero + index}>{hero}</li>
-        <button value={index} onClick={this.removeHero}>
-          Remove {hero}
-        </button>
-      </div>
-    ));
     return (
       <div>
-        <ul>{heroes}</ul>
+        <div>{this.props.render(this.state.items, this.removeHero)}</div>
+
+        {/* <ul>
+          {this.state.items.map((hero, index) => (
+            <div key={Math.random()}>
+              <li key={hero + index}>{hero}</li>
+              <button value={index} onClick={this.removeHero}>
+                Remove {hero}
+              </button>
+            </div>
+          ))}
+        </ul> */}
+
         <input
           value={this.state.newHero}
           name='hero'
