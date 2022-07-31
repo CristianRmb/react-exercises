@@ -9,8 +9,20 @@ import { Message } from './Message';
 // import { UncontrolledLogin } from './UncontrolledLogin';
 import TodoList from './TodoList';
 import { Container } from './Container';
+import { LanguageContext } from './LanguageContext';
+import { DisplayLanguage } from './DisplayLanguage';
 
 export class App extends React.Component {
+  state = {
+    language: 'en',
+  };
+
+  handleLanguageChange = (event) => {
+    this.setState({
+      language: event.target.value,
+    });
+  };
+
   render() {
     return (
       <Container title={'Title'}>
@@ -21,7 +33,7 @@ export class App extends React.Component {
         <ClickTracker />
         <InteractiveWelcome />
         <Login />
-        <UncontrolledLogin />*/}
+      <UncontrolledLogin />*/}
         <TodoList
           render={(items, removeHero) => {
             return (
@@ -40,6 +52,17 @@ export class App extends React.Component {
             );
           }}
         ></TodoList>
+
+        <select
+          value={this.state.language}
+          onChange={this.handleLanguageChange}
+        >
+          <option value={'en'}>English</option>
+          <option value={'it'}>Italiano</option>
+        </select>
+        <LanguageContext.Provider value={this.state.language}>
+          <DisplayLanguage />
+        </LanguageContext.Provider>
       </Container>
     );
   }
