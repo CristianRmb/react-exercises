@@ -17,7 +17,7 @@
     @apply text-blue-600 underline;
   }
   input {
-    @apply border;
+    @apply border border-cyan-900 m-1 p-1;
   }
   button {
     @apply border bg-slate-300 m-1 p-1;

@@ -7,6 +7,7 @@ import { LanguageContext } from './LanguageContext';
 import { DisplayLanguage } from './DisplayLanguage';
 import Sum from './Sum';
 import { ClickCounter } from './ClickCounter';
+import Login from './Login';
 
 export class App extends React.Component {
   state = {
@@ -21,40 +22,11 @@ export class App extends React.Component {
 
   render() {
     return (
-      <Container title={'Title'}>
+      <Container title={'React Exercises'}>
         <Welcome age={27} />
         <Sum numbers={[5, 10, 15, 20, 25, 30, 35]} />
         <ClickCounter />
-        <Message />
-        <TodoList
-          render={(items, removeHero) => {
-            return (
-              <div>
-                <ul>
-                  {items.map((hero, index) => (
-                    <div key={Math.random()}>
-                      <li key={hero + index}>{hero}</li>
-                      <button value={index} onClick={removeHero}>
-                        Remove {hero}
-                      </button>
-                    </div>
-                  ))}
-                </ul>
-              </div>
-            );
-          }}
-        ></TodoList>
-
-        <select
-          value={this.state.language}
-          onChange={this.handleLanguageChange}
-        >
-          <option value={'en'}>English</option>
-          <option value={'it'}>Italiano</option>
-        </select>
-        <LanguageContext.Provider value={this.state.language}>
-          <DisplayLanguage />
-        </LanguageContext.Provider>
+        <Login />
       </Container>
     );
   }
