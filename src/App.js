@@ -7,6 +7,7 @@ import Login from './Login';
 import { Counter } from './Counter';
 import { GithubUser } from './GithubUser';
 import { GithubUserList } from './GithubUserList';
+import { HookCounter } from './HookCounter';
 
 export class App extends React.Component {
   state = {
@@ -35,6 +36,8 @@ export class App extends React.Component {
         <GithubUser username={'CristianRmb'} />
 
         <GithubUserList />
+
+        <HookCounter />
       </Container>
     );
   }
