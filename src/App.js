@@ -6,6 +6,7 @@ import { Container } from './Container';
 import { LanguageContext } from './LanguageContext';
 import { DisplayLanguage } from './DisplayLanguage';
 import Sum from './Sum';
+import { ClickCounter } from './ClickCounter';
 
 export class App extends React.Component {
   state = {
@@ -23,6 +24,7 @@ export class App extends React.Component {
       <Container title={'Title'}>
         <Welcome age={27} />
         <Sum numbers={[5, 10, 15, 20, 25, 30, 35]} />
+        <ClickCounter />
         <Message />
         <TodoList
           render={(items, removeHero) => {
