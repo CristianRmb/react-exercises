@@ -6,6 +6,7 @@ import { ClickCounter } from './ClickCounter';
 import Login from './Login';
 import { Counter } from './Counter';
 import { GithubUser } from './GithubUser';
+import { GithubUserList } from './GithubUserList';
 
 export class App extends React.Component {
   state = {
@@ -32,6 +33,8 @@ export class App extends React.Component {
           <button onClick={this.handleCouner}>Remove Counter</button>
         )}
         <GithubUser username={'CristianRmb'} />
+
+        <GithubUserList />
       </Container>
     );
   }

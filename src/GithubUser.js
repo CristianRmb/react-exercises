@@ -15,7 +15,6 @@ export function GithubUser({ username }) {
         setData(json);
       });
   }, [username]);
-  console.log(data);
 
   return (
     <div>
@@ -23,6 +22,7 @@ export function GithubUser({ username }) {
         <ul>
           {' '}
           <h1>{data.name}</h1>
+          <h2>{username}</h2>
           <li>Public Repos: {data.public_repos}</li>
           <li>Email: {data.email}</li>
         </ul>
