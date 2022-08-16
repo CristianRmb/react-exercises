@@ -5,6 +5,7 @@ import Sum from './Sum';
 import { ClickCounter } from './ClickCounter';
 import Login from './Login';
 import { Counter } from './Counter';
+import { GithubUser } from './GithubUser';
 
 export class App extends React.Component {
   state = {
@@ -26,10 +27,11 @@ export class App extends React.Component {
           onCounterChange={() => console.log('counter has been incremented ')}
         />
         <Login />
-        {this.state.counter && <Counter /> }
+        {this.state.counter && <Counter />}
         {this.state.counter && (
           <button onClick={this.handleCouner}>Remove Counter</button>
         )}
+        <GithubUser username={'CristianRmb'} />
       </Container>
     );
   }
