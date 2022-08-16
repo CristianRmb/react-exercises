@@ -1,39 +1,26 @@
-import React from 'react';
-import { CounterDisplay } from './CounterDisplay';
+import React, { useState, useEffect } from 'react';
 
-/* Modify the Counter component so that the interval is initialized within the componentDidMount 
-life cycle method instead of the constructor. Is the constructor still required? */
+/* Rewrite the Counter component from State 1 as a function component and add a side effect that 
+initializes the interval as soon as the component renders,
+and clears it when the component unmounts. */
 
-export class Counter extends React.Component {
+export function Counter({
+  incrementBy = 1,
+  interval = 1000,
+  initialValue = 0,
+}) {
+  const [count, setCount] = useState(initialValue);
 
-  state = {
-    count: this.props.initialValue ?? 0,
-  };
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCount((count) => count + incrementBy);
+    }, interval);
 
-/*   constructor(props) {
-    super(props);
+    return () => {
+      console.log('i am unmounting...');
+      clearInterval(intervalId);
+    };
+  }, []);
 
-
-    setInterval(() => {
-      this.setState(() => {
-        return { count: this.state.count + (this.props.incrementAmount ?? 1) };
-      });
-    }, this.props.incrementInterval ?? 1000);
-  } */
-
-
-  componentDidMount(){
-    setInterval(()=> {
-      this.setState(() => {
-        return { count: this.state.count + (this.props.incrementAmount ?? 1) };
-      });
-    }, this.props.incrementInterval ?? 1000);
-  }
-
-  render() {
-    return (
-      <CounterDisplay count= {this.state.count}/>
-    );
-  }
+  return <h1>Count: {count}</h1>;
 }
-/* Props: initialValue, incrementAmount, incrementInterval */

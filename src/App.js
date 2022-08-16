@@ -1,15 +1,21 @@
 import React from 'react';
-import { Message } from './Message';
 import { Welcome } from './Welcome ';
-import TodoList from './TodoList';
 import { Container } from './Container';
-import { LanguageContext } from './LanguageContext';
-import { DisplayLanguage } from './DisplayLanguage';
 import Sum from './Sum';
 import { ClickCounter } from './ClickCounter';
 import Login from './Login';
+import { Counter } from './Counter';
 
 export class App extends React.Component {
+  state = {
+    counter: true,
+  };
+
+  handleCouner = () => {
+    this.setState({
+      counter: false,
+    });
+  };
 
   render() {
     return (
@@ -20,6 +26,10 @@ export class App extends React.Component {
           onCounterChange={() => console.log('counter has been incremented ')}
         />
         <Login />
+        {this.state.counter && <Counter /> }
+        {this.state.counter && (
+          <button onClick={this.handleCouner}>Remove Counter</button>
+        )}
       </Container>
     );
   }
