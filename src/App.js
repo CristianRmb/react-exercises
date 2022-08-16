@@ -8,6 +8,8 @@ import { Counter } from './Counter';
 import { GithubUser } from './GithubUser';
 import { GithubUserList } from './GithubUserList';
 import { HookCounter } from './HookCounter';
+import { FormHook } from './FormHook';
+
 
 export class App extends React.Component {
   state = {
@@ -38,6 +40,8 @@ export class App extends React.Component {
         <GithubUserList />
 
         <HookCounter />
+
+        <FormHook />
       </Container>
     );
   }
