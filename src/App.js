@@ -22,7 +22,7 @@ export class App extends React.Component {
     return (
       <Container title={'Title'}>
         <Welcome age={27} />
-        <Sum />
+        <Sum numbers={[5, 10, 15, 20, 25, 30, 35]} />
         <Message />
         <TodoList
           render={(items, removeHero) => {
