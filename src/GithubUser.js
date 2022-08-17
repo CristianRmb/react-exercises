@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
-/* Create a GithubUser component that fetches the data of the username passed as a prop, and renders some 
-of the data within a div tag. The API to query is https://api.github.com/users/${username}. */
+/* Extract the logic to fetch a Github user's data from the GithubUser component from useEffect 03
+ into a custom hook called useGithubUser. */
 
-export function GithubUser({ username }) {
+function useGithubUser(username) {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -15,6 +15,15 @@ export function GithubUser({ username }) {
         setData(json);
       });
   }, [username]);
+
+  return {
+    data: data,
+  };
+}
+
+export function GithubUser({ username }) {
+  
+  const { data } = useGithubUser(username);
 
   return (
     <div>
