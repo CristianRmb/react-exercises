@@ -3,6 +3,7 @@ import { Welcome } from './Welcome ';
 import { Container } from './Container';
 import { LanguageContext } from './LanguageContext';
 import { HookCounter } from './HookCounter';
+import { FilteredList } from './FilteredList';
 
 export function App() {
   const [language, setLanguage] = useState('en');
@@ -21,6 +22,7 @@ export function App() {
         <Container title={'React Exercises'}>
           <Welcome age={27} />
           <HookCounter />
+          <FilteredList />
         </Container>
       </LanguageContext.Provider>
     </div>
