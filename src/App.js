@@ -37,11 +37,6 @@ export class App extends React.Component {
         )}
         <GithubUser username={'CristianRmb'} />
 
-        <GithubUserList />
-
-        <HookCounter />
-
-        <FormHook />
       </Container>
     );
   }
