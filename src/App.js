@@ -6,10 +6,7 @@ import { ClickCounter } from './ClickCounter';
 import Login from './Login';
 import { Counter } from './Counter';
 import { GithubUser } from './GithubUser';
-import { GithubUserList } from './GithubUserList';
-import { HookCounter } from './HookCounter';
-import { FormHook } from './FormHook';
-
+import { CarDetails } from './CarDetails';
 
 export class App extends React.Component {
   state = {
@@ -37,6 +34,9 @@ export class App extends React.Component {
         )}
         <GithubUser username={'CristianRmb'} />
 
+        <CarDetails
+          initialData={{ model: 'Ford', year: 2000, color: 'blue' }}
+        />
       </Container>
     );
   }
