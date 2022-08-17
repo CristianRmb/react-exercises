@@ -1,12 +1,8 @@
 import { useState } from 'react';
 import { Welcome } from './Welcome ';
 import { Container } from './Container';
-import Sum from './Sum';
-import { ClickCounter } from './ClickCounter';
-import Login from './Login';
-import { GithubUser } from './GithubUser';
-import { CarDetails } from './CarDetails';
 import { LanguageContext } from './LanguageContext';
+import { HookCounter } from './HookCounter';
 
 export function App() {
   const [language, setLanguage] = useState('en');
@@ -24,15 +20,7 @@ export function App() {
       <LanguageContext.Provider value={language}>
         <Container title={'React Exercises'}>
           <Welcome age={27} />
-          <Sum numbers={[5, 10, 15, 20, 25, 30, 35]} />
-          <ClickCounter
-            onCounterChange={() => console.log('counter has been incremented ')}
-          />
-          <Login />
-          <GithubUser username={'CristianRmb'} />
-          <CarDetails
-            initialData={{ model: 'Ford', year: 2000, color: 'blue' }}
-          />
+          <HookCounter />
         </Container>
       </LanguageContext.Provider>
     </div>

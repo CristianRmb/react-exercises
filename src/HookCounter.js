@@ -1,19 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useCallback } from 'react';
 
-function useCounter(initialValue = 0) {
+/* Modify the useCounter custom hook from Custom Hooks 01 to use the useCallback 
+to memoize the functions used to increment, decrement and reset the counter. */
+
+function useCounter(initialValue) {
   const [counter, setCounter] = useState(initialValue);
 
-  function handleCounterIncrement() {
+  const handleCounterIncrement = useCallback(function handleCounterIncrement() {
     setCounter((c) => c + 1);
-  }
+  }, []);
 
-  function handleCounterDecrement() {
+  const handleCounterDecrement = useCallback(function handleCounterDecrement() {
     setCounter((c) => c - 1);
-  }
+  }, []);
 
-  function handleCounterReset() {
-    setCounter(initialValue);
-  }
+  const handleCounterReset = useCallback(
+    function handleCounterReset() {
+      setCounter(initialValue);
+    },
+    [initialValue],
+  );
 
   return {
     counter: counter,
@@ -23,9 +29,12 @@ function useCounter(initialValue = 0) {
   };
 }
 
-export function HookCounter({ initialValue = 0 }) {
+export function HookCounter({ initialValue = 30 }) {
   const { counter, onIncrement, onDecrement, onReset } =
     useCounter(initialValue);
+
+  useCallback(() => {}, []);
+
   return (
     <div>
       <h1>Counter: {counter}</h1>
