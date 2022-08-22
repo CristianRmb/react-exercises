@@ -6,6 +6,7 @@ import { HookCounter } from './HookCounter';
 import { FilteredList } from './FilteredList';
 import { Routes, Route } from 'react-router-dom';
 import { Counter } from './Counter';
+import { ShowGithubUser } from './ShowGithubUser';
 
 export function App() {
   const [language, setLanguage] = useState('en');
@@ -31,6 +32,7 @@ export function App() {
         <Routes>
           <Route path='/' element={<Welcome name={'CRISTIAN'} />} />
           <Route path='/counter' element={<Counter />} />
+          <Route path='users/:username' element={<ShowGithubUser />} />
         </Routes>
       </Container>
     </div>
