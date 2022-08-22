@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { GithubUser } from './GithubUser';
 
 /* Add a new Route to the users/:username path that renders a ShowGithubUser component 
@@ -11,6 +11,7 @@ export function ShowGithubUser() {
   return (
     <div>
       <GithubUser username={username} />
+      <Link to={'/users'}>Back</Link>
     </div>
   );
 }

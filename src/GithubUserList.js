@@ -5,21 +5,16 @@ import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 
 export function GithubUserList() {
-  const [arrayUsername, setArrayUsername] = useState([]);
   const [inputValue, setInputValue] = useState();
 
   function HandleInput(event) {
     setInputValue(event.target.value);
   }
 
-  function AddUsername() {
-    setArrayUsername((arrayUsername) => [...arrayUsername, inputValue]);
-    setInputValue(''); // reset input
-  }
 
   return (
     <div>
-      <Link to={'/users/CristianRmb'}>Show User</Link>
+      <Link to={'/users/CristianRmb'}>Cristian</Link>
       <Outlet />
     </div>
   );
