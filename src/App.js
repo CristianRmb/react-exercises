@@ -5,6 +5,7 @@ import { LanguageContext } from './LanguageContext';
 import { HookCounter } from './HookCounter';
 import { FilteredList } from './FilteredList';
 import { Routes, Route } from 'react-router-dom';
+import { Counter } from './Counter';
 
 export function App() {
   const [language, setLanguage] = useState('en');
@@ -28,7 +29,8 @@ export function App() {
       </LanguageContext.Provider>
       <Container>
         <Routes>
-          <Route path='/' element={<Welcome name={"CRISTIAN"}/>} />
+          <Route path='/' element={<Welcome name={'CRISTIAN'} />} />
+          <Route path='/counter' element={<Counter />} />
         </Routes>
       </Container>
     </div>
