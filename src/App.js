@@ -4,6 +4,7 @@ import { Container } from './Container';
 import { LanguageContext } from './LanguageContext';
 import { HookCounter } from './HookCounter';
 import { FilteredList } from './FilteredList';
+import { Routes, Route } from 'react-router-dom';
 
 export function App() {
   const [language, setLanguage] = useState('en');
@@ -25,6 +26,11 @@ export function App() {
           <FilteredList />
         </Container>
       </LanguageContext.Provider>
+      <Container>
+        <Routes>
+          <Route path='/' element={<Welcome name={"CRISTIAN"}/>} />
+        </Routes>
+      </Container>
     </div>
   );
 }
