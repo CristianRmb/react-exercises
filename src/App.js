@@ -4,6 +4,7 @@ import { Routes, Route, Link } from 'react-router-dom';
 import { Counter } from './Counter';
 import { ShowGithubUser } from './ShowGithubUser';
 import { GithubUserList } from './GithubUserList';
+import { GithubUser } from './GithubUser';
 
 /* Add a Route to the users path that shows the GihubUserList component from useEffect 04. 
 Modify it so that instead of showing the GithubUser component for each username entered, 
@@ -40,6 +41,7 @@ export function App() {
             }
           />
         </Routes>
+        <GithubUser username={"CristianRmb"} />
       </Container>
     </div>
   );
