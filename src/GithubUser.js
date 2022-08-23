@@ -7,8 +7,8 @@ the data of a Github user. */
 function useGithubUser(username) {
   const fetcher = (url) => fetch(url).then((response) => response.json());
 
-  const { data, error, mutate } = useSWR(
-    `https://api.github.com/users/${username}`,
+  const { data, error, mutate } = useSWR(username ? 
+    `https://api.github.com/users/${username}`:null,
     fetcher,
   );
 
@@ -25,7 +25,10 @@ function useGithubUser(username) {
 }
 
 export function GithubUser({ username }) {
-  const { data, error, loading, onFetchUser } = useGithubUser(username);
+
+  
+    const { data, error, loading, onFetchUser } = useGithubUser(username);
+  
 
   function handleGetUserData() {
     onFetchUser(username);
