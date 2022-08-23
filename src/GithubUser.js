@@ -1,14 +1,14 @@
 import React from 'react';
 import useSWR from 'swr';
+import { useState } from 'react';
 
-/* Modify the useGithubUser custom hook from Custom Hooks 03 to use the useSWR hook to fetch 
-the data of a Github user. */
+/* Modify the useGithubUser hook so that it returns a function to manually refetch the data when invoked. */
 
 function useGithubUser(username) {
   const fetcher = (url) => fetch(url).then((response) => response.json());
 
-  const { data, error, mutate } = useSWR(username ? 
-    `https://api.github.com/users/${username}`:null,
+  const { data, error, mutate } = useSWR(
+    username ? `https://api.github.com/users/${username}` : null,
     fetcher,
   );
 
@@ -24,11 +24,9 @@ function useGithubUser(username) {
   };
 }
 
-export function GithubUser({ username }) {
+export function GithubUser({username}) {
 
-  
-    const { data, error, loading, onFetchUser } = useGithubUser(username);
-  
+  const { data, error, loading, onFetchUser } = useGithubUser(username);
 
   function handleGetUserData() {
     onFetchUser(username);
@@ -36,7 +34,7 @@ export function GithubUser({ username }) {
 
   return (
     <div>
-      <button onClick={handleGetUserData}>Load user data</button>
+      <button onClick={handleGetUserData}>Refetch data</button>
       {loading && <h1>Loading...</h1>}
       {error && <h1>There has been an error</h1>}
       {data && <h1>{data.name}</h1>}
